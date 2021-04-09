@@ -5,6 +5,8 @@
  */
 package spaceinvaders;
 
+import java.util.concurrent.Executors;
+
 /**
  *
  * @author francesco
@@ -24,6 +26,8 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
      */
     public NewJFrameSpaceInvaders() {
         initComponents();
+        var exe = Executors.newCachedThreadPool();
+        exe.execute(new AliensThread(jButtonAlien1, jButtonAlien2, jButtonAlien3));
     }
 
     /**
@@ -38,10 +42,10 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        jButtonSpaceship = new javax.swing.JButton();
+        jButtonAlien1 = new javax.swing.JButton();
+        jButtonAlien2 = new javax.swing.JButton();
+        jButtonAlien3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,13 +65,13 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
 
         jButton3.setText("Fire");
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spaceinvaders/spaceship4.png"))); // NOI18N
+        jButtonSpaceship.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spaceinvaders/SpaceShip4.png"))); // NOI18N
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spaceinvaders/alien-1.png"))); // NOI18N
+        jButtonAlien1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spaceinvaders/alien-1.png"))); // NOI18N
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spaceinvaders/alien-2.png"))); // NOI18N
+        jButtonAlien2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spaceinvaders/alien-2.png"))); // NOI18N
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spaceinvaders/alien-3.jpg"))); // NOI18N
+        jButtonAlien3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spaceinvaders/alien-3.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,13 +81,13 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton4))
+                        .addComponent(jButtonSpaceship))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5)
-                            .addComponent(jButton6)
-                            .addComponent(jButton7)))
+                            .addComponent(jButtonAlien1)
+                            .addComponent(jButtonAlien2)
+                            .addComponent(jButtonAlien3)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(273, 273, 273)
                         .addComponent(jButton1)
@@ -97,13 +101,13 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jButton7)
+                .addComponent(jButtonAlien3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
+                .addComponent(jButtonAlien2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
+                .addComponent(jButtonAlien1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(jButtonSpaceship)
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -163,9 +167,9 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButtonAlien1;
+    private javax.swing.JButton jButtonAlien2;
+    private javax.swing.JButton jButtonAlien3;
+    private javax.swing.JButton jButtonSpaceship;
     // End of variables declaration//GEN-END:variables
 }
