@@ -20,7 +20,10 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
     public static final double ALIEN_XMAX = SPACESHIP_XMAX;
     public static final double ROCKET_YMIN = 270.0;
     public static final double ROCKET_YMAX = 8.0;
-    
+
+    Spaceship spaceship;
+    Rocket rocket;
+
     /**
      * Creates new form NewJFrameSpaceInvaders
      */
@@ -39,31 +42,37 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonMoveSx = new javax.swing.JButton();
+        jButtonMoveDx = new javax.swing.JButton();
+        jButtonFire = new javax.swing.JButton();
         jButtonSpaceship = new javax.swing.JButton();
         jButtonAlien1 = new javax.swing.JButton();
         jButtonAlien2 = new javax.swing.JButton();
         jButtonAlien3 = new javax.swing.JButton();
+        jButtonRocket = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("<<");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonMoveSx.setText("<<");
+        jButtonMoveSx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonMoveSxActionPerformed(evt);
             }
         });
 
-        jButton2.setText(">>");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonMoveDx.setText(">>");
+        jButtonMoveDx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonMoveDxActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Fire");
+        jButtonFire.setText("Fire");
+        jButtonFire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFireActionPerformed(evt);
+            }
+        });
 
         jButtonSpaceship.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spaceinvaders/SpaceShip4.png"))); // NOI18N
 
@@ -72,6 +81,13 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
         jButtonAlien2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spaceinvaders/alien-2.png"))); // NOI18N
 
         jButtonAlien3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spaceinvaders/alien-3.jpg"))); // NOI18N
+
+        jButtonRocket.setText("jButton1");
+        jButtonRocket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRocketActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,12 +106,15 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
                             .addComponent(jButtonAlien3)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(273, 273, 273)
-                        .addComponent(jButton1)
+                        .addComponent(jButtonMoveSx)
                         .addGap(61, 61, 61)
-                        .addComponent(jButton2))
+                        .addComponent(jButtonMoveDx))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(324, 324, 324)
-                        .addComponent(jButton3)))
+                        .addComponent(jButtonFire))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jButtonRocket)))
                 .addContainerGap(272, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -106,27 +125,39 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
                 .addComponent(jButtonAlien2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonAlien1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                .addComponent(jButtonRocket)
+                .addGap(54, 54, 54)
                 .addComponent(jButtonSpaceship)
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonMoveSx)
+                    .addComponent(jButtonMoveDx))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(jButtonFire)
                 .addGap(12, 12, 12))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButtonMoveSxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMoveSxActionPerformed
+        //imposta il target a (target - step) per spostarsi verso sinistra
+        spaceship.setTargetX(spaceship.getTargetX() - STEP);
+    }//GEN-LAST:event_jButtonMoveSxActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonMoveDxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMoveDxActionPerformed
+        //imposta il target a (target + step) per spostarsi verso destra
+        spaceship.setTargetX(spaceship.getTargetX() + STEP);
+    }//GEN-LAST:event_jButtonMoveDxActionPerformed
+
+    private void jButtonFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFireActionPerformed
+        
+    }//GEN-LAST:event_jButtonFireActionPerformed
+
+    private void jButtonRocketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRocketActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonRocketActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,12 +195,13 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonAlien1;
     private javax.swing.JButton jButtonAlien2;
     private javax.swing.JButton jButtonAlien3;
+    private javax.swing.JButton jButtonFire;
+    private javax.swing.JButton jButtonMoveDx;
+    private javax.swing.JButton jButtonMoveSx;
+    private javax.swing.JButton jButtonRocket;
     private javax.swing.JButton jButtonSpaceship;
     // End of variables declaration//GEN-END:variables
 }

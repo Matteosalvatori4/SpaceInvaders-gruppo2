@@ -39,7 +39,5 @@ public class AliensThread implements Runnable {
                 Logger.getLogger(AliensThread.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
     }
-
 }
