@@ -25,18 +25,17 @@ public class Alien extends ElementiDiGioco {
     }
 
     @Override
-    public void move() {
+    public void raggiuntoTarget() {
         // si muove a destra
         if (getX() == NewJFrameSpaceInvaders.ALIEN_XMAX) {
-
+            System.out.println("vado a sinistra");
             setTargetX(NewJFrameSpaceInvaders.ALIEN_XMIN);
         } //si muove a sinistra
         else {
+            System.out.println("vado a destra");
             setTargetX(NewJFrameSpaceInvaders.ALIEN_XMAX);
         }
         //esegue il movimento
         setStepX(-getStepX());
     }
 }
-
-

@@ -22,7 +22,7 @@ public class AliensThread implements Runnable {
     public AliensThread(JButton... icone) {
         for (int i = 0; i < icone.length; i++) {
             JButton ico = icone[i];
-            Alien a = new Alien(ico, i * 20);
+            Alien a = new Alien(ico, i * 100);
             listaAlieni.add(a);
         }
     }
@@ -31,7 +31,17 @@ public class AliensThread implements Runnable {
     public void run() {
         while (true) {
             //faccio muovere tutti gli alieni
-            listaAlieni.forEach(a -> a.move());
+            System.out.println("mi muovo");
+            listaAlieni.forEach(a -> {
+                if (a.hasToMove()) {
+                    a.move();
+                } else {
+                    a.raggiuntoTarget();
+                    if (a.hasToMove()) {
+                        a.move();
+                    }
+                }
+                });
             try {
                 //aspetto 20 ms
                 Thread.sleep(20);

@@ -13,7 +13,7 @@ import javax.swing.JButton;
  * @author francesco
  */
 public class ElementiDiGioco {
-    
+
     private double x, y;
     private double targetX, targetY;
     private double stepX, stepY;
@@ -85,8 +85,12 @@ public class ElementiDiGioco {
     public void setButton(JButton button) {
         this.button = button;
     }
-    
-     public boolean hasToMove() {
+
+    public void raggiuntoTarget() {
+        System.out.println("Raggiunto target");
+    }
+
+    public boolean hasToMove() {
         // se non sono sulle coordinate target mi devo muovere
         boolean htm = ((x != targetX) || (y != targetY));
         System.out.println(this + "HasToMove = " + htm);
