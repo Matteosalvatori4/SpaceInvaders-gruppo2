@@ -14,16 +14,19 @@ import javax.swing.JButton;
 public class Rocket extends ElementiDiGioco {
     
     public Rocket(JButton button, double x) {
-        setButton(button);
+       setButton(button);
         getButton().setVisible(true);
         setX(x);
+        setButton(button);
+        setTargetY(NewJFrameSpaceInvaders.ROCKET_YMAX);
+        setTargetX(x);
         setY(NewJFrameSpaceInvaders.ROCKET_YMIN);
         setStepX(0);
         setStepY(-2);
     }
 
     @Override
-    public void move() {
+    public void raggiuntoTarget() {
         //controllo margine superiore
         if (getY() == NewJFrameSpaceInvaders.ROCKET_YMAX) {
             getButton().setVisible(false);

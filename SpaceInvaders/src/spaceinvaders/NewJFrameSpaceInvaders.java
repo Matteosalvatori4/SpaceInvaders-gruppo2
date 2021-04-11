@@ -34,8 +34,8 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
         var exe = Executors.newCachedThreadPool();
         exe.execute(new AliensThread(jButtonAlien1, jButtonAlien2, jButtonAlien3));
         spaceship = new Spaceship(jButtonSpaceship);
+        rocket = new Rocket(jButtonRocket, spaceship.getX());
         exe.execute(new SpaceshipThread(spaceship));
-        rocket = new Rocket(jButtonRocket, ROCKET_YMIN);
         exe.execute(new RocketThread(rocket));
     }
 
@@ -100,29 +100,24 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonAlien3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButtonSpaceship)
+                        .addComponent(jButtonAlien2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonAlien1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonRocket, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButtonSpaceship))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(273, 273, 273)
+                        .addGap(148, 148, 148)
                         .addComponent(jButtonMoveSx)
                         .addGap(61, 61, 61)
                         .addComponent(jButtonMoveDx))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(324, 324, 324)
-                        .addComponent(jButtonFire))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonAlien3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButtonAlien1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonAlien2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(jButtonRocket, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(272, Short.MAX_VALUE))
+                        .addGap(199, 199, 199)
+                        .addComponent(jButtonFire)))
+                .addContainerGap(318, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,11 +128,11 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
                 .addComponent(jButtonAlien2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonAlien1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 486, Short.MAX_VALUE)
                 .addComponent(jButtonRocket, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(444, 444, 444)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonSpaceship)
-                .addGap(21, 21, 21)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonMoveSx)
                     .addComponent(jButtonMoveDx))
@@ -163,11 +158,10 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
         spaceship.raggiuntoTarget();
         jButtonMoveDx.setEnabled(checkDx);
         jButtonMoveSx.setEnabled(checkSx);
-
     }//GEN-LAST:event_jButtonMoveDxActionPerformed
 
     private void jButtonFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFireActionPerformed
-
+            rocket = new Rocket(jButtonRocket, spaceship.getX());
     }//GEN-LAST:event_jButtonFireActionPerformed
 
     private void jButtonRocketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRocketActionPerformed

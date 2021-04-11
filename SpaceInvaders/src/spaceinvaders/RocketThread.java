@@ -9,7 +9,8 @@ package spaceinvaders;
  *
  * @author matte
  */
-public class RocketThread implements Runnable{
+public class RocketThread implements Runnable {
+
     Rocket rocket;
 
     public RocketThread(Rocket rocket) {
@@ -18,14 +19,16 @@ public class RocketThread implements Runnable{
 
     @Override
     public void run() {
-        if(rocket.hasToMove()){
-        rocket.move();}
-        else{
-        rocket.raggiuntoTarget();}
-         if(rocket.hasToMove()){
-        rocket.move();}
-        
+        while (true) {
+            if (rocket.hasToMove()) {
+                rocket.move();
+            } else {
+                rocket.raggiuntoTarget();
+            }
+            if (rocket.hasToMove()) {
+                rocket.move();
+            }
+        }
     }
 
-    
 }
