@@ -31,6 +31,8 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
         initComponents();
         var exe = Executors.newCachedThreadPool();
         exe.execute(new AliensThread(jButtonAlien1, jButtonAlien2, jButtonAlien3));
+        spaceship= new Spaceship(jButtonSpaceship);
+        exe.execute(new SpaceshipThread(spaceship));
     }
 
     /**
@@ -82,7 +84,7 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
 
         jButtonAlien3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spaceinvaders/alien-3.jpg"))); // NOI18N
 
-        jButtonRocket.setText("jButton1");
+        jButtonRocket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spaceinvaders/Rocket.png"))); // NOI18N
         jButtonRocket.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRocketActionPerformed(evt);
@@ -107,15 +109,15 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
                         .addGap(324, 324, 324)
                         .addComponent(jButtonFire))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jButtonRocket))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButtonAlien3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jButtonAlien1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonAlien2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jButtonAlien2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(jButtonRocket, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(272, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -127,9 +129,9 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
                 .addComponent(jButtonAlien2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonAlien1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
-                .addComponent(jButtonRocket)
-                .addGap(54, 54, 54)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(jButtonRocket, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(444, 444, 444)
                 .addComponent(jButtonSpaceship)
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -151,6 +153,7 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
     private void jButtonMoveDxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMoveDxActionPerformed
         //imposta il target a (target + step) per spostarsi verso destra
         spaceship.setTargetX(spaceship.getTargetX() + STEP);
+        spaceship.raggiuntoTarget();
     }//GEN-LAST:event_jButtonMoveDxActionPerformed
 
     private void jButtonFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFireActionPerformed

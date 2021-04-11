@@ -36,7 +36,30 @@ public class Spaceship extends ElementiDiGioco {
         }
         //eseguo il movimento
         setX(getX() + getStepX());
-        setY(getY() + getStepY());
     }
+
+    @Override
+    public void raggiuntoTarget() {
+
+        if (getX() == NewJFrameSpaceInvaders.SPACESHIP_XMAX) {
+            //abilito bottone sx
+            
+        }
+        if (getX() != NewJFrameSpaceInvaders.SPACESHIP_XMAX){
+            //abilito bottone dx
+        }
+        if (getX() == NewJFrameSpaceInvaders.SPACESHIP_XMIN) {
+            //disiabilito bottone sx
+        }
+        if (getX() != NewJFrameSpaceInvaders.SPACESHIP_XMIN){
+            //abilito bottone sx
+        }
+        else {
+          //lascio bottoni attivi
+        }
+        //esegue il movimento
+        setStepX(-getStepX());
+       }
+    
 
 }

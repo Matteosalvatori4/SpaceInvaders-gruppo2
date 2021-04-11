@@ -40,10 +40,6 @@
                       <Component id="jButtonFire" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="jButtonRocket" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jButtonAlien3" min="-2" pref="74" max="-2" attributes="0"/>
@@ -52,6 +48,10 @@
                               <Component id="jButtonAlien2" min="-2" pref="78" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                      <Component id="jButtonRocket" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="272" max="32767" attributes="0"/>
@@ -67,9 +67,9 @@
               <Component id="jButtonAlien2" min="-2" pref="62" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButtonAlien1" min="-2" pref="62" max="-2" attributes="0"/>
-              <EmptySpace pref="163" max="32767" attributes="0"/>
-              <Component id="jButtonRocket" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <Component id="jButtonRocket" min="-2" pref="95" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="444" max="-2" attributes="0"/>
               <Component id="jButtonSpaceship" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -138,7 +138,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonRocket">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/spaceinvaders/Rocket.png"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRocketActionPerformed"/>
