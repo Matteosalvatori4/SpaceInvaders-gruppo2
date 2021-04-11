@@ -20,6 +20,8 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
     public static final double ALIEN_XMAX = SPACESHIP_XMAX;
     public static final double ROCKET_YMIN = 270.0;
     public static final double ROCKET_YMAX = 8.0;
+    public static boolean checkDx = true;
+    public static boolean checkSx = false;
 
     Spaceship spaceship;
     Rocket rocket;
@@ -31,8 +33,10 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
         initComponents();
         var exe = Executors.newCachedThreadPool();
         exe.execute(new AliensThread(jButtonAlien1, jButtonAlien2, jButtonAlien3));
-        spaceship= new Spaceship(jButtonSpaceship);
+        spaceship = new Spaceship(jButtonSpaceship);
         exe.execute(new SpaceshipThread(spaceship));
+        rocket = new Rocket(jButtonRocket, ROCKET_YMIN);
+        exe.execute(new RocketThread(rocket));
     }
 
     /**
@@ -148,16 +152,22 @@ public class NewJFrameSpaceInvaders extends javax.swing.JFrame {
     private void jButtonMoveSxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMoveSxActionPerformed
         //imposta il target a (target - step) per spostarsi verso sinistra
         spaceship.setTargetX(spaceship.getTargetX() - STEP);
+        spaceship.raggiuntoTarget();
+        jButtonMoveSx.setEnabled(checkSx);
+        jButtonMoveDx.setEnabled(checkDx);
     }//GEN-LAST:event_jButtonMoveSxActionPerformed
 
     private void jButtonMoveDxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMoveDxActionPerformed
         //imposta il target a (target + step) per spostarsi verso destra
         spaceship.setTargetX(spaceship.getTargetX() + STEP);
         spaceship.raggiuntoTarget();
+        jButtonMoveDx.setEnabled(checkDx);
+        jButtonMoveSx.setEnabled(checkSx);
+
     }//GEN-LAST:event_jButtonMoveDxActionPerformed
 
     private void jButtonFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFireActionPerformed
-        
+
     }//GEN-LAST:event_jButtonFireActionPerformed
 
     private void jButtonRocketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRocketActionPerformed

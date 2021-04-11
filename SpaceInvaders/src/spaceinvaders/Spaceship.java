@@ -27,10 +27,9 @@ public class Spaceship extends ElementiDiGioco {
     public void move() {
         // se devo andare a destra
         if (getTargetX() > getX()) {
-        // mi muovo a destra di 1
+            // mi muovo a destra di 1
             setStepX(1);
-        } 
-        //altrimenti vado a sinistra
+        } //altrimenti vado a sinistra
         else {
             setStepX(-1);
         }
@@ -42,24 +41,21 @@ public class Spaceship extends ElementiDiGioco {
     public void raggiuntoTarget() {
 
         if (getX() == NewJFrameSpaceInvaders.SPACESHIP_XMAX) {
-            //abilito bottone sx
-            
-        }
-        if (getX() != NewJFrameSpaceInvaders.SPACESHIP_XMAX){
-            //abilito bottone dx
-        }
-        if (getX() == NewJFrameSpaceInvaders.SPACESHIP_XMIN) {
-            //disiabilito bottone sx
-        }
-        if (getX() != NewJFrameSpaceInvaders.SPACESHIP_XMIN){
-            //abilito bottone sx
-        }
-        else {
-          //lascio bottoni attivi
+            //disabilito bottone dx
+            NewJFrameSpaceInvaders.checkDx = false;
+
+        } else if (getX() == NewJFrameSpaceInvaders.SPACESHIP_XMIN) {
+            //disabilito bottone sx
+            NewJFrameSpaceInvaders.checkSx = false;
+
+        } else {
+            //lascio bottoni attivi
+            NewJFrameSpaceInvaders.checkDx = true;
+            NewJFrameSpaceInvaders.checkSx = true;
+
         }
         //esegue il movimento
         setStepX(-getStepX());
-       }
-    
+    }
 
 }

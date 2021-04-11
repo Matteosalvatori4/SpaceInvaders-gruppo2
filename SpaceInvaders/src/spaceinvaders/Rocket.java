@@ -21,7 +21,7 @@ public class Rocket extends ElementiDiGioco {
         setStepX(0);
         setStepY(-2);
     }
-    
+
     @Override
     public void move() {
         //controllo margine superiore
